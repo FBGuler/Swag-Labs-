@@ -56,10 +56,13 @@ jobs:
         password: ${{ secrets.EMAIL_PASSWORD }}
         subject: "${{ github.workflow }} Test Results"
         from: SwagLab_CI Test Team
-        body:
+        body:  |
             The test results for ${{ github.workflow }} has completed.
             Please find the artifacts attached to this email.
             Regards,
             Test Automation
         to: ${{ secrets.EMAIL_RECIPIENTS }}     
+        attachments:  |
+            ./target/default-cucumber-reports.html
+            
              
